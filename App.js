@@ -8,7 +8,7 @@ import {
   Image,
   TextInput,
   SafeAreaView,
-  TouchableHighlight,
+  TouchableOpacity,
   Dimensions,
   Button,
 } from "react-native";
@@ -57,7 +57,7 @@ export default function App() {
           uri: "https://i.imgur.com/kmQcMoF.png?1",
         }}
       />
-      <Text style={styles.text}>The cutest Pig Latin translator</Text>
+      <Text style={styles.subtitle}>The cutest Pig Latin translator</Text>
       {/* <Image source={require("./assets/icon.png")} /> */}
 
       <Image
@@ -68,18 +68,28 @@ export default function App() {
         }}
       />
       <TextInput
-        style={styles.text}
+        numberOfLines={5}
+        style={styles.input}
         placeholder="enter your message"
         value={message}
         onChangeText={handleChange}
+        textAlignVertical="top"
       />
-      <Text>Oink: {handleTranslate(message)}</Text>
+      <Text style={styles.text} placeholder="Oink Oink">
+        {" "}
+        Translation Here: {handleTranslate(message)}
+      </Text>
       {/* <Button
         style={buttonStyles.button}
         title="Translate"
         onPress={handleSubmit}
       /> */}
-      <Button style={buttonStyles.button} title="Reset" onPress={handleReset} />
+      <Button
+        color="white"
+        fontWeight="500"
+        title="Reset"
+        onPress={handleReset}
+      />
 
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -96,14 +106,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  subtitle: {
+    marginVertical: 10,
+    color: "#FFFF",
+    textShadowColor: "#ffff",
+    fontWeight: "500",
+    fontSize: 15,
+    // fontFamily: "LilitaOne-Regular",
+  },
   text: {
     marginVertical: 10,
     color: "#FFFF",
     textShadowColor: "#ffff",
     fontWeight: "500",
-    fontSize: 12,
-
-    // fontFamily: "Lilita One",
+    fontSize: 25,
+    // fontFamily: "LilitaOne-Regular",
   },
 
   input: {
@@ -111,6 +128,12 @@ const styles = StyleSheet.create({
     padding: 6,
     margin: 20,
     width: 300,
+    height: 50,
+    flex: 0.25,
+    flexDirection: "column",
+    // flexDirection: "column",
+    flexWrap: "wrap",
+    // flexShrink: 1,
     borderColor: "#ffff",
     borderBottomWidth: 2,
     padding: 2,
@@ -119,10 +142,20 @@ const styles = StyleSheet.create({
 const buttonStyles = StyleSheet.create({
   button: {
     marginVertical: 10,
-    color: "#FFFF",
+    color: "#ffff",
     textShadowColor: "#ffff",
     fontWeight: "500",
     fontSize: 19,
     // fontFamily: "Lilita One",
   },
 });
+
+{
+  /* <TouchableOpacity
+        style={buttonStyles.button}
+        title="Reset"
+        onPress={handleReset}
+      >
+        <Text> Reset </Text>
+      </TouchableOpacity> */
+}
