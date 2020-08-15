@@ -72,12 +72,12 @@ export default function App() {
         value={message}
         onChangeText={handleChange}
       />
-      <Text>Oink: {translation}</Text>
-      <Button
+      <Text>Oink: {handleTranslate(message)}</Text>
+      {/* <Button
         style={buttonStyles.button}
         title="Translate"
         onPress={handleSubmit}
-      />
+      /> */}
       <Button style={buttonStyles.button} title="Reset" onPress={handleReset} />
 
       <StatusBar style="auto" />
