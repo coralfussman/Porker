@@ -19,9 +19,6 @@ export default function App() {
   console.log("App executed");
   // console.log(Dimensions.get("screen"));
   const [message, setMessage] = useState("");
-  const [translation, setTranslation] = useState("");
-
-  // const string = "hey I'm new at this";
 
   const handleChange = (value) => {
     setMessage(value);
@@ -40,10 +37,14 @@ export default function App() {
     const firstIndex = string.indexOf(firstVowel);
     const trans = "";
     if (firstIndex > 0) {
-      return string.slice(firstIndex) + string.slice(0, firstIndex) + "ay";
+      return (
+        string.toLowerCase().slice(firstIndex) +
+        string.slice(0, firstIndex) +
+        "ay"
+      );
+    } else if (!string === "") {
+      return string + "way";
     }
-    return string + "way";
-    // setTranslation(trans)
   };
 
   return (
