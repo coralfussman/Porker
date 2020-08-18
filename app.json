@@ -22,6 +22,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "The cutest Pig Latin translator App. "
+    "description": "The cutest Pig Latin translator App. Using React Native."
   }
 }

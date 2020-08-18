@@ -16,7 +16,7 @@ import { preventAutoHide } from "expo/build/launch/SplashScreen";
 import { Input, withTheme } from "react-native-elements";
 
 export default function App() {
-  // console.log("App executed");
+  console.log("App executed");
   // console.log(Dimensions.get("screen"));
   const [message, setMessage] = useState("");
 
@@ -52,8 +52,7 @@ export default function App() {
   }
 
   const handleTranslate = (string) => {
-    if (string.substring(0, 1).match(/[aeiou]/gi) !== null)
-      return string + "yay";
+    if (string.slice(0, 1).match(/[aeiou]/gi) !== null) return string + "yay";
     // if they don't match, move 1st group of consonants to end and append ay
 
     return string.replace(/([b-df-hj-np-tv-z]+)(.+)/gi, "$2$1ay");
